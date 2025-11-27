@@ -1,0 +1,86 @@
+/* Atur wadah utama */
+.carousel-container {
+    /* Harus diatur ke relative agar tombol navigasi bisa di-posisikan absolut */
+    position: relative; 
+    width: 80%; /* Sesuaikan lebar yang Anda inginkan */
+    margin: 0 auto;
+}
+
+/* Sembunyikan semua yang melebihi batas wadah tampilan */
+.carousel-track-container {
+    height: 400px; /* Atur tinggi yang Anda inginkan */
+    overflow: hidden; 
+    position: relative;
+}
+
+/* Hilangkan style default list (ul) */
+.carousel-track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    /* Gunakan Flexbox untuk menempatkan semua slide sejajar */
+    display: flex; 
+    
+    /* Di sini Anda akan menggunakan JavaScript untuk menggeser track */
+    /* Contoh: transform: translateX(-400px); */
+    
+    /* Tambahkan transisi jika Anda ingin pergerakan yang mulus (Animasi) */
+    transition: transform 250ms ease-in-out;
+}
+
+/* Style setiap slide */
+.carousel-slide {
+    /* Agar setiap slide memiliki lebar yang sama dengan track-container */
+    width: 100%; 
+    flex-shrink: 0; /* Penting: mencegah slide mengecil */
+}
+
+/* Style gambar di dalam slide */
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Untuk memastikan gambar menutupi area tanpa terdistorsi */
+}
+
+/* Style Tombol Navigasi */
+.carousel-button {
+    position: absolute;
+    top: 50%; /* Posisikan di tengah vertikal */
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 0;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+/* Style Indikator Navigasi (Dots) */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(0, 0, 0, 0.3);
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel-indicator.current-slide {
+    background: rgba(0, 0, 0, 0.7);
+}
